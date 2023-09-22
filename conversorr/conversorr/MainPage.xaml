@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="conversorr.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="#007bff" />
+                
+            </Style>
+
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="PlaceholderColor" Value="#999" />
+                <Setter Property="TextColor" Value="#333" />
+                
+            </Style>
+
+            <Style x:Key="PickerStyle" TargetType="Picker">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#333" />
+               
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="#fff" />
+                
+                <Setter Property="BackgroundColor" Value="#007bff" />
+                
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="HeightRequest" Value="50" />
+                
+                <Setter Property="WidthRequest" Value="200" />
+               
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="20" Spacing="10">
+        <Label Style="{StaticResource LabelStyle}" Text="Conversor de Unidades" HorizontalOptions="CenterAndExpand" />
+
+        <Entry x:Name="inputEntry" Placeholder="Ingrese el valor" Style="{StaticResource EntryStyle}" />
+        <Picker x:Name="fromUnitPicker" Title="De" Style="{StaticResource PickerStyle}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Kilogramos</x:String>
+                    <x:String>Litros</x:String>
+                    <x:String>Grados Celsius</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Picker x:Name="toUnitPicker" Title="A" Style="{StaticResource PickerStyle}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Libras</x:String>
+                    <x:String>Galones</x:String>
+                    <x:String>Grados Fahrenheit</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button Text="Convertir" Clicked="OnConvertClicked" Style="{StaticResource ButtonStyle}" HorizontalOptions="CenterAndExpand" />
+
+        <Label x:Name="resultLabel" Style="{StaticResource LabelStyle}" HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+</ContentPage>
